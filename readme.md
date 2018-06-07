@@ -1,6 +1,6 @@
 # Camera API
 
-![demo](https://github.com/peerhenry/CameraApi/blob/master/snip.png)
+![demo](https://github.com/peerhenry/CameraApi/blob/master/snip.PNG)
 
 ## Create javascript bundle
 Install node modules using `npm install`, then run `npm run build`. This will create 'bundle.js' inside 'wwwroot'.
