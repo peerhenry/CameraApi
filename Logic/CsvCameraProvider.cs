@@ -23,7 +23,8 @@ namespace CameraLogic
         int counter = 0;
         while( (line = reader.ReadLine()) != null )
         {
-          if(counter > 0)
+          bool lineIsReadable = counter > 0 && !string.IsNullOrWhiteSpace(line);
+          if(lineIsReadable)
           {
             CameraModel newModel = LineToModel(line, counter);
             camList.Add( newModel );
@@ -73,13 +74,13 @@ namespace CameraLogic
     {
       if(ex is FormatException || ex is OverflowException)
       {
-        return string.Format("ERROR: CSV line {0} invalid format of longitude or latitude", lineNumber);
+        return string.Format("CSV line {0} invalid format of longitude or latitude", lineNumber);
       }
       else if(ex is IndexOutOfRangeException)
       {
-        return string.Format("ERROR: CSV line {0} does not match expected format; should contain 3 entries separated by ';' .", lineNumber);
+        return string.Format("CSV line {0} does not match expected format; should contain 3 entries separated by ';'.", lineNumber);
       }
-      return string.Format("ERROR: CSV line {0} gave an exception: " + ex.Message, lineNumber);
+      return string.Format("CSV line {0} gave an exception: " + ex.Message, lineNumber);
     }
 
     public IQueryable<CameraModel> GetCameras()

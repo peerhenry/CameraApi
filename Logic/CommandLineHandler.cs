@@ -30,8 +30,8 @@ namespace CameraLogic
       IEnumerable<CameraModel> cams = provider.FilterByName(name).ToList();
       foreach(CameraModel cam in cams)
       {
-          string camStringLine = FormatCamToString(cam);
-          Console.WriteLine(camStringLine);
+        string outputLine = cam.Error != null ? cam.Error : FormatCamToString(cam);
+        Console.WriteLine(outputLine);
       }
     }
 
