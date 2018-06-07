@@ -65,7 +65,7 @@ namespace CameraLogic
 
     private int extractIndex(string line)
     {
-      // UTR-CM-568
+      // format is "UTR-CM-568 Rest" or "UTR-CM-568-Rest"
       string[] splits = line.Split('-', ' ');
       return Convert.ToInt32(splits[2]);
     }
